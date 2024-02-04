@@ -9,6 +9,7 @@
 import UIKit
 
 class CalculatorView: UIView {
+
   var resultLabel: UILabel = {
     let label = UILabel()
     label.text = "0"
@@ -17,12 +18,6 @@ class CalculatorView: UIView {
     label.font = UIFont(name: "Arial", size: 80)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
-  }()
-
-  var holder: UIView = {
-    let view = UIView()
-    view.translatesAutoresizingMaskIntoConstraints = false
-    return view
   }()
 
   var firstNumber = 0
