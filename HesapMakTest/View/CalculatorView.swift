@@ -46,7 +46,7 @@ class CalculatorView: UIView {
     addSubview(resultLabel)
 
     setupResultLabelConstraints()
-    // Butonlar ve diğer UI elemanlarını burada ekleyebilirsiniz.
+    
   }
 
   private func setupResultLabelConstraints() {
