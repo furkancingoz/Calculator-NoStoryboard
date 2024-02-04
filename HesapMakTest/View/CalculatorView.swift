@@ -43,27 +43,29 @@ class CalculatorView: UIView {
   }
 
   private func setupLayout() {
-         addSubview(resultLabel)
-         setupResultLabelConstraints()
-         // Butonlar ve diğer UI elemanlarını burada ekleyebilirsiniz.
-     }
+    addSubview(resultLabel)
+
+    setupResultLabelConstraints()
+    // Butonlar ve diğer UI elemanlarını burada ekleyebilirsiniz.
+  }
 
   private func setupResultLabelConstraints() {
-         NSLayoutConstraint.activate([
-             resultLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-             resultLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-             resultLabel.heightAnchor.constraint(equalToConstant: 100)
-         ])
-     }
+    NSLayoutConstraint.activate([
+      resultLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+      resultLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+      resultLabel.heightAnchor.constraint(equalToConstant: 100)
+    ])
+  }
 
-     override func layoutSubviews() {
-         super.layoutSubviews()
-         setupNumberPad()
-     }
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    setupNumberPad()
+  }
 
   private func setupNumberPad(){
     let space: CGFloat = 5 // veya istediğin boşluk miktarı
     let buttonSize: CGFloat = (self.frame.size.width - 5 * space) / 4
+    var buttons: [UIButton] = []
 
     let zeroButton = UIButton(frame: CGRect(x: space, y: self.frame.size.height-buttonSize, width: buttonSize*3 + 10, height: buttonSize))
     zeroButton.setTitleColor(.white, for: .normal)
@@ -75,7 +77,7 @@ class CalculatorView: UIView {
     zeroButton.tag = 1
     zeroButton.addTarget(self, action: #selector(zeroButtonTap), for: .touchUpInside)
     zeroButton.layer.borderColor = UIColor.black.cgColor
-    self.addSubview(zeroButton)
+    buttons.append(zeroButton)
 
     for x in 0..<3 {
 
@@ -89,7 +91,7 @@ class CalculatorView: UIView {
       button1.layer.borderWidth = 2
       button1.tag = x+2
       button1.addTarget(self, action: #selector(numberPressed), for: .touchUpInside)
-      self.addSubview(button1)
+      buttons.append(button1)
     }
 
     for x in 0..<3 {
@@ -103,7 +105,7 @@ class CalculatorView: UIView {
       button2.layer.borderColor = UIColor.black.cgColor
       button2.tag = x+5
       button2.addTarget(self, action: #selector(numberPressed), for: .touchUpInside)
-      self.addSubview(button2)
+      buttons.append(button2)
     }
 
     for x in 0..<3 {
@@ -117,7 +119,7 @@ class CalculatorView: UIView {
       button3.layer.borderColor = UIColor.black.cgColor
       button3.tag = x+8
       button3.addTarget(self, action: #selector(numberPressed), for: .touchUpInside)
-      self.addSubview(button3)
+      buttons.append(button3)
     }
 
     let clearButton = UIButton(frame:CGRect(x: 0, y: self.frame.size.height-(buttonSize*5) - 5, width: buttonSize*3 + 15, height: buttonSize))
@@ -128,7 +130,7 @@ class CalculatorView: UIView {
     clearButton.layer.cornerRadius = 50
     clearButton.layer.borderWidth = 2
     clearButton.layer.borderColor = UIColor.black.cgColor
-    self.addSubview(clearButton)
+    buttons.append(clearButton)
 
 
     let operations = ["=","+","-","x","/"]
@@ -142,12 +144,14 @@ class CalculatorView: UIView {
       button4.layer.borderColor = UIColor.black.cgColor
       button4.tag = x+1
       button4.addTarget(self, action: #selector(operationPressed), for: .touchUpInside)
-      self.addSubview(button4)
+      buttons.append(button4)
     }
 
     resultLabel.frame = CGRect(x: 20, y: clearButton.frame.origin.y - 110.0, width: self.frame.size.width - 40, height: 100)
-    self.addSubview(resultLabel)
     clearButton.addTarget(self, action: #selector(clearResult), for: .touchUpInside)
+    self.addSubviews(resultLabel)
+
+    buttons.forEach { self.addSubview($0) }
   }
 
 
@@ -210,7 +214,7 @@ class CalculatorView: UIView {
       }
     }
 
-    if tag == 1 { // 
+    if tag == 1 { //
       currentOperations = nil
       firstNumber = 0 //
     } else if tag == 2 {
@@ -221,6 +225,15 @@ class CalculatorView: UIView {
       currentOperations = .multiply
     } else if tag == 5 {
       currentOperations = .divide
+    }
+  }
+}
+
+
+extension UIView {
+  func addSubviews(_ views: UIView...) {
+    views.forEach {
+      addSubview($0)
     }
   }
 }
