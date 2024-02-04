@@ -60,14 +60,38 @@
 			children = (
 				65994FB32B6C125B00DBCF62 /* AppDelegate.swift */,
 				65994FB52B6C125B00DBCF62 /* SceneDelegate.swift */,
-				65994FB72B6C125B00DBCF62 /* ViewController.swift */,
-				65B190382B6F1CD400DE075D /* Calculator.swift */,
-				65B1903A2B6F1DFB00DE075D /* CalculatorView.swift */,
+				65B1903E2B6F268900DE075D /* Model */,
+				65B1903F2B6F269200DE075D /* View */,
+				65B190402B6F269B00DE075D /* Controller */,
 				65994FBC2B6C126000DBCF62 /* Assets.xcassets */,
 				65994FBE2B6C126000DBCF62 /* LaunchScreen.storyboard */,
 				65994FC12B6C126000DBCF62 /* Info.plist */,
 			);
 			path = HesapMakTest;
+			sourceTree = "<group>";
+		};
+		65B1903E2B6F268900DE075D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65B190382B6F1CD400DE075D /* Calculator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65B1903F2B6F269200DE075D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65B1903A2B6F1DFB00DE075D /* CalculatorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65B190402B6F269B00DE075D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				65994FB72B6C125B00DBCF62 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
