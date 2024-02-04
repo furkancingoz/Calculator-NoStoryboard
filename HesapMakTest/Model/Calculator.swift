@@ -28,6 +28,6 @@ class Calculator {
         return resultNumber
     }
 
-    // Diğer fonksiyonlar ve iş mantığı
+  
 }
 

@@ -2,8 +2,7 @@
 //  AppDelegate.swift
 //  HesapMakTest
 //
-//  Created by Furkan Cingöz on 1.02.2024.
-//
+//  Created by Furkan Cingöz on 1.02.2024. 
 
 import UIKit
 

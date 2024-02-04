@@ -150,7 +150,6 @@ class CalculatorView: UIView {
     clearButton.addTarget(self, action: #selector(clearResult), for: .touchUpInside)
   }
 
-  // ... Diğer metodlar ve actionlar burada yer alacak ...
 
   @objc func zeroButtonTap(){
     if resultLabel.text != "0" {
@@ -211,9 +210,9 @@ class CalculatorView: UIView {
       }
     }
 
-    if tag == 1 { // Eşit işlemi
+    if tag == 1 { // 
       currentOperations = nil
-      firstNumber = 0 // Sonuç gösterildikten sonra ilk sayıyı sıfırla
+      firstNumber = 0 //
     } else if tag == 2 {
       currentOperations = .add
     } else if tag == 3 {
