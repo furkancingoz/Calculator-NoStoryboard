@@ -12,9 +12,6 @@ class Calculator {
     var resultNumber: Int = 0
     var currentOperation: Operation?
 
-    enum Operation {
-        case add, subtract, multiply, divide, none
-    }
 
     func calculate(secondNumber: Int) -> Int {
         switch currentOperation {

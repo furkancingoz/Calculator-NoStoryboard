@@ -23,9 +23,6 @@ class CalculatorView: UIView {
   var firstNumber = 0
   var currentOperations: Operation?
 
-  enum Operation {
-    case add, subtract, multiply, divide, equal
-  }
 
   override init(frame: CGRect) {
     super.init(frame: frame)
