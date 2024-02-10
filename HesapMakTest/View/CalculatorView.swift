@@ -176,7 +176,7 @@ class CalculatorView: UIView {
 
     if let text = resultLabel.text, let value = Int(text), firstNumber == 0 {
       firstNumber = value
-      resultLabel.text = "0"
+      resultLabel.text = ""
     }
     if let operation = currentOperations {
       var secondNumber = 0
